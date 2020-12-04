@@ -1,0 +1,40 @@
+#include <Servo.h>
+
+Servo myservo;
+
+#define motor 3
+#define motorDirection 12
+#define brakePin 9
+
+#define servo 
+
+#define laserEmitter 8 
+#define laserSensor 7
+
+void setup() {
+  pinMode(motor,OUTPUT); //Motor control pin
+  pinMode(motorDirection OUTPUT); //Motor direction pin
+  pinMode(brakePin,OUTPUT); //Brake pin
+  pinMode(laserEmitter, OUTPUT);
+  pinMode(laserSensor, INPUT);
+
+  
+
+  digitalWrite(brakePin,LOW); // turn off brake
+  digitalWrite(motor, LOW); //turn off motor
+  delay(200); // wait to start loop
+}
+
+void loop() {
+  //Full speed direction 1
+  digitalWrite(motorDirection, LOW); //Set direction 1
+  analogWrite(motor, 255); // turn on motor
+  delay(3000); //wait 1 sec
+  digitalWrite(motor, LOW); // turn motor off
+  
+  digitalWrite(brakePin, HIGH); //brake on
+  delay(50); //wait till motor stops
+  digitalWrite(brakePin, LOW); // brake off
+
+  delay(1500);
+}
